@@ -105,6 +105,39 @@ var getUserInput = function() {
 // END OF getUserInput FUNCTION
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+// Function to randomly generate an uppercase letter
+var genRandomUpper = function() {
+   // In the UTF-16 character table, uppercase letters start at decimal value 65
+   return String.fromCharCode( Math.floor( Math.random() * 26 ) + 65 );
+}
+// END OF genRandomUpper FUNCTION
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+// Function to randomly generate a lowercase letter
+var genRandomLower = function() {
+   // In the UTF-16 character table, lowercase letters start at decimal value 97
+   return String.fromCharCode( Math.floor( Math.random() * 26 ) + 97 );
+}
+// END OF genRandomLower FUNCTION
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+// Function to randomly generate a special character
+var genRandomSpecialChar = function() {
+   var specialChars = "~`!@#$%^&*()_-+=[]{}\|';:,<.\>./?";
+   // In the UTF-16 character table, lowercase letters start at decimal value 97
+   return specialChars[ Math.floor( Math.random() * specialChars.length )];
+}
+// END OF genRandomLower FUNCTION
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+// Function to randomly generate a number
+var genRandomNum = function() {
+   // In the UTF-16 character table, numbers start at decimal value 47
+   return String.fromCharCode( Math.floor( Math.random() * 10 ) + 48 );
+}
+// END OF genRandomNum FUNCTION
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 // Get references to the #generate element
 var generateBtn = document.querySelector( "#generate" );
 
@@ -120,3 +153,7 @@ function writePassword() {
 generateBtn.addEventListener( "click", writePassword );
 
 getUserInput();
+console.log( genRandomUpper() );
+console.log( genRandomLower() );
+console.log( genRandomSpecialChar() );
+console.log( genRandomNum() );
