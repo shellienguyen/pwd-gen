@@ -24,7 +24,7 @@ PSEUDOCODES:
 // Assignment code here //
 //////////////////////////
 
-// Arry to hold user preferences
+// Array to hold user preferences
 // Default all password criteria to true and length to 12
 var userInput = [
    { length: 12,
@@ -33,6 +33,8 @@ var userInput = [
      special: true,
      number: true }
 ]
+// END OF DECLARING GLOBAL VARIABLES
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 // Function to get and validate user input
 var getUserInput = function() {
@@ -138,6 +140,49 @@ var genRandomNum = function() {
 // END OF genRandomNum FUNCTION
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+// Function to generate the password
+var generatePassword = function() {
+   var thePassword = "";
+   var randomChar = "";
+
+   // Loop through and add one character at a time until reaches password length
+   for( var i = 0; i < userInput[0]; i++ ) {
+      // Randomly generate a number to determine which charater type to generate next 
+      var randomType = parseInt( String.fromCharCode( Math.floor( Math.random() * 4 ) + 48 ));
+
+      switch( randomType ) {
+         case 0:
+            if ( userInput[1] ) {
+               randomChar = genRandomUpper();
+            }
+            break;
+         case 1:
+            if ( userInput[2] ) {
+               randomChar = genRandomLower();
+            }
+            break;
+         case 2:
+            if ( userInput[3] ) {
+               randomChar = genRandomSpecialChar();
+            }
+            break;
+         default:
+            if ( userInput[4] ) {
+               randomChar = genRandomNum();
+            }
+            break;
+      }
+
+      console.log( "randomType = " + randomType + "; i = " + i + "; char = " + randomChar );
+
+      // Append the randomly generated character to the thePassword variable
+      thePassword = thePassword + randomChar;
+      console.log( "THE PASSWORD IS: " + thePassword );
+   }
+}
+// END OF generatePassword FUNCTION
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 // Get references to the #generate element
 var generateBtn = document.querySelector( "#generate" );
 
@@ -153,7 +198,4 @@ function writePassword() {
 generateBtn.addEventListener( "click", writePassword );
 
 getUserInput();
-console.log( genRandomUpper() );
-console.log( genRandomLower() );
-console.log( genRandomSpecialChar() );
-console.log( genRandomNum() );
+writePassword();
