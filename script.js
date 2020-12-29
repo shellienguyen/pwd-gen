@@ -179,6 +179,8 @@ var generatePassword = function() {
       thePassword = thePassword + randomChar;
       console.log( "THE PASSWORD IS: " + thePassword );
    }
+
+   return thePassword;
 }
 // END OF generatePassword FUNCTION
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
