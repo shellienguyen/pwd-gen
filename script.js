@@ -14,8 +14,10 @@ PSEUDOCODES:
    - Function to generate random number
    - Function to generate random special character
 - Loop through until reaches password length
-   - Call the above functions one by one to randonly generate characters
-   - Append each newly generated character to the end of the genPassword variable
+   - Randomly generate a number, and based on this numer it will determine which
+       character type to generate next, then call the appropriate function to 
+       carry out the task
+   - Append each newly generated character to the end of the password variable
 - When done, display the generated password to the screen
 - Provide a copy button for the user to copy the password
 */
@@ -98,6 +100,7 @@ var getUserInput = function() {
          userInput[4] = true;
          break;
    }
+
    console.log( "0: " + userInput[0] );
    console.log( "1: " + userInput[1] );
    console.log( "2: " + userInput[2] );
@@ -190,6 +193,8 @@ var generateBtn = document.querySelector( "#generate" );
 
 // Write password to the #password input
 function writePassword() {
+   getUserInput();
+
    var password = generatePassword();
    var passwordText = document.querySelector( "#password" );
 
@@ -198,6 +203,3 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener( "click", writePassword );
-
-getUserInput();
-writePassword();
