@@ -41,7 +41,7 @@ var userInput = [
 // Function to get and validate user input
 var getUserInput = function() {
 
-   // Asking the user for the password length
+   // Ask the user for the password length
    // Do not allow a blank or a non-numeric answer; AND only allow a number between 8-128
    let pwdLength = window.prompt( "Enter a number between 8-128 for desired password length:" );
    while ( (( pwdLength < 8 ) || ( pwdLength > 128 )) || ( isNaN( pwdLength )) ){
@@ -50,7 +50,7 @@ var getUserInput = function() {
    pwdLength = parseInt( pwdLength );
    userInput[0] = pwdLength;
 
-   // Asking the user for the case type preference
+   // Ask the user for the case type preference
    let pwdCaseType = window.prompt( "Enter 1 for mixed-case, 2 for lowercase only, or 3 for uppercase only: ")
    while ( (( pwdCaseType < 1 ) || ( pwdCaseType > 3 )) || (isNaN( pwdCaseType )) ) {
       pwdCaseType = window.prompt( "Enter 1 for mixed-case, 2 for lowercase only, or 3 for uppercase only: ")
@@ -71,7 +71,7 @@ var getUserInput = function() {
          break;
    }
 
-   // Asking whether the user wants to include special characters or not
+   // Ask whether the user wants to include special characters or not
    let pwdIncludeSpecialChars = window.prompt( "Enter 1 to INCLUDE special characters, enter 2 to EXCLUDE:" );
    while ( (( pwdIncludeSpecialChars < 1 ) || ( pwdIncludeSpecialChars > 2 )) || ( isNaN( pwdIncludeSpecialChars )) ){
       pwdIncludeSpecialChars = window.prompt( "Enter 1 to INCLUDE special characters, enter 2 to EXCLUDE: ");
@@ -86,7 +86,7 @@ var getUserInput = function() {
          break;
    }
 
-   // Asking whether the user wants to include numbers or not
+   // Ask whether the user wants to include numbers or not
    let pwdIncludeNum = window.prompt( "Enter 1 to INCLUDE  numbers, enter 2 to EXCLUDE numbers:" );
    while ( (( pwdIncludeNum < 1 ) || ( pwdIncludeNum > 2 )) || ( isNaN( pwdIncludeNum )) ) {
       pwdIncludeNum = window.prompt( "Enter 1 to INCLUDE  numbers, enter 2 to EXCLUDE numbers:" );
@@ -129,7 +129,6 @@ var genRandomLower = function() {
 // Function to randomly generate a special character
 var genRandomSpecialChar = function() {
    var specialChars = "~`!@#$%^&*()_-+=[]{}\|';:,<.\>./?";
-   // In the UTF-16 character table, lowercase letters start at decimal value 97
    return specialChars[ Math.floor( Math.random() * specialChars.length )];
 }
 // END OF genRandomLower FUNCTION
@@ -137,7 +136,7 @@ var genRandomSpecialChar = function() {
 
 // Function to randomly generate a number
 var genRandomNum = function() {
-   // In the UTF-16 character table, numbers start at decimal value 47
+   // In the UTF-16 character table, numbers start at decimal value 48
    return String.fromCharCode( Math.floor( Math.random() * 10 ) + 48 );
 }
 // END OF genRandomNum FUNCTION
